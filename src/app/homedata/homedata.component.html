@@ -1,0 +1,53 @@
+<form #userForm="ngForm"   (ngSubmit)="onSave(userForm.value);userForm.reset()" novalidate>  
+    <p>Is "myForm" valid? {{userForm.valid}}</p> 
+  
+   <table border='1'>  
+    <tr>  
+    <td>name</td>  
+    <td>   
+        <!-- <input name="id" type="hidden"     [(ngModel)]="id" />   -->
+        <input name="name" type="text"  required  [(ngModel)]="name" />  
+    </td>  
+    </tr>  
+    
+    <tr>  
+      <td>address</td>  
+      <td><input name="address" required  type="text"   [(ngModel)]="address" /></td>  
+    </tr> 
+  
+    <tr>  
+      <td colspan="2">  
+      <!-- <input type="submit" value="{{valbutton}}" />   -->
+      <button>Save</button>
+      </td>  
+    </tr>  
+   </table>  
+  </form>  
+   
+  <button (click)="Update()">Update</button>
+  
+  
+  <table border='1'>  
+    <tr>  
+      <td>Id</td>  
+      <td>Name</td>  
+      <td>Address</td>  
+      <td>Edit</td>  
+      <td>Delete</td>  
+    </tr>  
+  
+    <tr *ngFor="let kk of Repdata;let ind = index">  
+      <td>{{ind + 1}}</td>  
+      <td>{{kk.name}}</td>  
+      <td>{{kk.address}}</td>  
+      <td><a (click)="edit(kk)" style="color:blueviolet">Edit</a></td>  
+      <td><a (click)="delete(kk._id)" style="color:blueviolet">Delete</a>  </td>  
+    </tr> 
+  </table> 
+  
+  <div>
+    <button (click)="animate()">Click Me</button>
+    <div [@myanimation] = "state" class="rotate">
+       <img src="assets/images/dog.png" width="100" height="100">
+    </div>
+  </div>
